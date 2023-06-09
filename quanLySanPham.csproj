@@ -72,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="thongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="thongKe.Designer.cs">
+      <DependentUpon>thongKe.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="cate.resx">
       <DependentUpon>cate.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +100,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="thongKe.resx">
+      <DependentUpon>thongKe.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

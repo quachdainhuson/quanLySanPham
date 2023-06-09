@@ -45,6 +45,7 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.btn_reset_data = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_destroy = new System.Windows.Forms.Button();
@@ -57,7 +58,7 @@
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.txt_picture = new System.Windows.Forms.TextBox();
-            this.btn_exit = new System.Windows.Forms.Button();
+            this.btn_thong_ke = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_product)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -247,10 +248,20 @@
             this.groupBox2.Text = "Chức Năng";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // btn_exit
+            // 
+            this.btn_exit.Location = new System.Drawing.Point(242, 10);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(75, 23);
+            this.btn_exit.TabIndex = 3;
+            this.btn_exit.Text = "Thoát";
+            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.btn_thong_ke);
             this.groupBox6.Controls.Add(this.button1);
-            this.groupBox6.Controls.Add(this.btn_destroy);
             this.groupBox6.Location = new System.Drawing.Point(26, 206);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(291, 51);
@@ -261,7 +272,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(52, 14);
+            this.button1.Location = new System.Drawing.Point(52, 13);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 32);
             this.button1.TabIndex = 13;
@@ -271,9 +282,9 @@
             // 
             // btn_destroy
             // 
-            this.btn_destroy.Location = new System.Drawing.Point(164, 13);
+            this.btn_destroy.Location = new System.Drawing.Point(1080, 29);
             this.btn_destroy.Name = "btn_destroy";
-            this.btn_destroy.Size = new System.Drawing.Size(106, 32);
+            this.btn_destroy.Size = new System.Drawing.Size(70, 53);
             this.btn_destroy.TabIndex = 12;
             this.btn_destroy.Text = "Đăng Xuất";
             this.btn_destroy.UseVisualStyleBackColor = true;
@@ -369,15 +380,16 @@
             this.txt_picture.Size = new System.Drawing.Size(130, 20);
             this.txt_picture.TabIndex = 11;
             // 
-            // btn_exit
+            // btn_thong_ke
             // 
-            this.btn_exit.Location = new System.Drawing.Point(242, 10);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(75, 23);
-            this.btn_exit.TabIndex = 3;
-            this.btn_exit.Text = "Thoát";
-            this.btn_exit.UseVisualStyleBackColor = true;
-            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            this.btn_thong_ke.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_thong_ke.Location = new System.Drawing.Point(164, 13);
+            this.btn_thong_ke.Name = "btn_thong_ke";
+            this.btn_thong_ke.Size = new System.Drawing.Size(106, 32);
+            this.btn_thong_ke.TabIndex = 14;
+            this.btn_thong_ke.Text = "Thống Kê";
+            this.btn_thong_ke.UseVisualStyleBackColor = true;
+            this.btn_thong_ke.Click += new System.EventHandler(this.btn_thong_ke_Click);
             // 
             // main
             // 
@@ -386,6 +398,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1162, 593);
             this.Controls.Add(this.txt_picture);
+            this.Controls.Add(this.btn_destroy);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.groupBox1);
@@ -439,5 +452,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txt_picture;
         private System.Windows.Forms.Button btn_exit;
+        private System.Windows.Forms.Button btn_thong_ke;
     }
 }

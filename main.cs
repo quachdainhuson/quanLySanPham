@@ -356,5 +356,13 @@ namespace quanLySanPham
         {
             Application.Exit();
         }
+
+        private void btn_thong_ke_Click(object sender, EventArgs e)
+        {
+            thongKe thongKe = new thongKe();
+            this.Hide();
+            thongKe.Show();
+            
+        }
     }
 }
