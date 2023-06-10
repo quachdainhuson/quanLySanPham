@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,11 +25,14 @@ namespace quanLySanPham
         {
 
         }
-
+        private void prd_management() { 
+            Application.Run(new main());
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             bool timThayNguoiDung = false;
+            Thread th;
             string userName = txt_account.Text;
             string passWord = txt_pass.Text;
             string strCon = "Server=NhuSonNe; Database=C1302; Trusted_Connection=true;";
@@ -57,9 +61,12 @@ namespace quanLySanPham
                 if (timThayNguoiDung)
                 {
                     MessageBox.Show("Đăng Nhập Thành Công !!!");
-                    main main = new main();
-                    this.Hide();
-                    main.Show();
+                    this.Close();
+                    th = new Thread(prd_management);
+                    th.SetApartmentState(ApartmentState.STA);
+                    th.Start();
+
+                    
                     
                 }
                 else

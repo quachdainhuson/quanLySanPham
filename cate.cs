@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace quanLySanPham
 {
@@ -71,14 +72,36 @@ namespace quanLySanPham
         {
             String cate_name = txt_cate_name.Text;
             SqlConnection con = new SqlConnection(strCon);
-            con.Open();
-            string sql = $"INSERT INTO categories values ('{cate_name}')";
-            SqlCommand command = new SqlCommand(sql, con);
-            command.ExecuteNonQuery();
+            try {
+                if (cate_name == "") {
+                    MessageBox.Show("Nhập Đầy Đủ Thông Tin !!!!");
+                } else {
+                    con.Open();
+                    string checkQuery = $"SELECT COUNT(cate_id) FROM categories WHERE cate_name = '{cate_name}'";
+                    SqlCommand checkCommand = new SqlCommand(checkQuery, con);
+                    int existingCateNamet = (int)checkCommand.ExecuteScalar();
+                    con.Close();
+                    if (existingCateNamet > 0)
+                    {
+                        MessageBox.Show("Danh mục đã tồn tại!");
+                    }
+                    else
+                    {
+                        con.Open();
+                        string sql = $"INSERT INTO categories values ('{cate_name}')";
+                        SqlCommand command = new SqlCommand(sql, con);
+                        command.ExecuteNonQuery();
+                        con.Close();
+                        loadData();
+                    }
+                }
+                
+                
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message);    
+            }
             
-
-            con.Close();
-            loadData();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -125,15 +148,48 @@ namespace quanLySanPham
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            string cate_name = txt_cate_name.Text;
+
+            String cate_name = txt_cate_name.Text;
             String cate_id = txt_cate_id.Text;
             SqlConnection con = new SqlConnection(strCon);
-            con.Open();
-            String sql = $"UPDATE categories SET cate_name = '{cate_name}' WHERE cate_id = '{cate_id}'";
-            SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Cap Nhat Thanh Cong !!!");
-            loadData();
+            try
+            {
+                if (cate_name == "")
+                {
+                    MessageBox.Show("Nhập Đầy Đủ Thông Tin !!!!");
+                }
+                else
+                {
+                    con.Open();
+                    string checkQuery = $"SELECT COUNT(cate_id) FROM categories WHERE cate_name = '{cate_name}'";
+                    SqlCommand checkCommand = new SqlCommand(checkQuery, con);
+                    int existingCateNamet = (int)checkCommand.ExecuteScalar();
+                    con.Close();
+                    if (existingCateNamet > 0)
+                    {
+                        MessageBox.Show("Danh mục đã tồn tại!");
+                    }
+                    else
+                    {
+                        con.Open();
+                        String sql = $"UPDATE categories SET cate_name = '{cate_name}' WHERE cate_id = '{cate_id}'";
+                        SqlCommand cmd = new SqlCommand(sql, con);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Cap Nhat Thanh Cong !!!");
+                        loadData();
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+            
+            
+            
         }
 
         private void btn_reset_data_Click(object sender, EventArgs e)

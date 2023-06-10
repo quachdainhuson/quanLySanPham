@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Reflection;
+using System.Threading;
 
 namespace quanLySanPham
 {
@@ -167,7 +168,6 @@ namespace quanLySanPham
         private void btn_save_Click(object sender, EventArgs e)
         {
             try {
-                String cate_id = "";
                 String prd_name = txt_product_name.Text;
                 String prd_price = txt_product_price.Text;
                 String prd_quantity = txt_product_quantity.Text;
@@ -320,12 +320,17 @@ namespace quanLySanPham
             }
             
         }
-
+        private void cate_management()
+        {
+            Application.Run(new cate());
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            cate cate = new cate();
-            this.Hide();
-            cate.Show();
+            Thread th;
+            this.Close();
+            th = new Thread(cate_management);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -356,13 +361,18 @@ namespace quanLySanPham
         {
             Application.Exit();
         }
-
+        private void thongKe_management()
+        {
+            Application.Run(new thongKe());
+        }
         private void btn_thong_ke_Click(object sender, EventArgs e)
         {
-            thongKe thongKe = new thongKe();
-            this.Hide();
-            thongKe.Show();
-            
+            Thread th;
+            this.Close();
+            th = new Thread(thongKe_management);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+
         }
     }
 }

@@ -18,14 +18,11 @@ namespace quanLySanPham
         {
             InitializeComponent();
             total_product();
+            total_cate();
             gridView();
         }
 
         private void total_product() {
-
-             
-
-
             using (SqlConnection con = new SqlConnection(strCon))
             {
                 con.Open();
@@ -46,6 +43,28 @@ namespace quanLySanPham
                 
             }
             
+        }
+        private void total_cate() {
+            using (SqlConnection con = new SqlConnection(strCon))
+            {
+                con.Open();
+                string sql = "SELECT COUNT(categories.cate_id) AS total_cate FROM categories ";
+                using (SqlCommand command = new SqlCommand(sql, con))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            String total = reader["total_cate"].ToString();
+                            label1.Text = total;
+                        }
+                    }
+                }
+
+                con.Close();
+
+            }
+
         }
         private void gridView() {
             SqlConnection con = new SqlConnection(strCon);
@@ -71,6 +90,16 @@ namespace quanLySanPham
             main main = new main(); 
             this.Hide();
             main.Show();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void thongKe_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
