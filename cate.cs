@@ -175,7 +175,7 @@ namespace quanLySanPham
                         String sql = $"UPDATE categories SET cate_name = '{cate_name}' WHERE cate_id = '{cate_id}'";
                         SqlCommand cmd = new SqlCommand(sql, con);
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Cap Nhat Thanh Cong !!!");
+                        MessageBox.Show("Cập Nhật Thanh Công  !!!");
                         loadData();
                         con.Close();
                     }
@@ -201,7 +201,7 @@ namespace quanLySanPham
         private void btn_delete_Click(object sender, EventArgs e)
         {
             try {
-                DialogResult result = MessageBox.Show("Ban co chac chan muon xoa danh muc nay khong nay khong??", "Xoa", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Bạn có chấc muốn xóa danh mục này không ??", "Xoa", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
                 {
@@ -212,12 +212,13 @@ namespace quanLySanPham
                     String sql = $"DELETE FROM categories WHERE cate_id = '{cate_id}'";
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Cap Nhat Thanh Cong !!!");
+                    MessageBox.Show("Xóa Danh Mục Thành Công !!!");
                     loadData();
+                    con.Close();
                 }
             }
             catch (Exception ex) {
-                MessageBox.Show("Danh Muc Nay co the ton tai san pham!!");
+                MessageBox.Show("Danh Mục Này Có Thể Tồn Tại Sản Phẩm , Hãy Xóa Hết Sản Phẩm Trước Khi Xóa Danh Mục !!");
             }
             
             

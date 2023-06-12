@@ -47,8 +47,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_exit = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btn_thong_ke = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btn_destroy = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_delete = new System.Windows.Forms.Button();
             this.edit_function = new System.Windows.Forms.GroupBox();
@@ -57,8 +57,8 @@
             this.create_function = new System.Windows.Forms.GroupBox();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
+            this.btn_destroy = new System.Windows.Forms.Button();
             this.txt_picture = new System.Windows.Forms.TextBox();
-            this.btn_thong_ke = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_product)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -269,6 +269,17 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Chức năng Khác";
             // 
+            // btn_thong_ke
+            // 
+            this.btn_thong_ke.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_thong_ke.Location = new System.Drawing.Point(164, 13);
+            this.btn_thong_ke.Name = "btn_thong_ke";
+            this.btn_thong_ke.Size = new System.Drawing.Size(106, 32);
+            this.btn_thong_ke.TabIndex = 14;
+            this.btn_thong_ke.Text = "Thống Kê";
+            this.btn_thong_ke.UseVisualStyleBackColor = true;
+            this.btn_thong_ke.Click += new System.EventHandler(this.btn_thong_ke_Click);
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -279,16 +290,6 @@
             this.button1.Text = "Quản Lý Danh Mục";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btn_destroy
-            // 
-            this.btn_destroy.Location = new System.Drawing.Point(1080, 29);
-            this.btn_destroy.Name = "btn_destroy";
-            this.btn_destroy.Size = new System.Drawing.Size(70, 53);
-            this.btn_destroy.TabIndex = 12;
-            this.btn_destroy.Text = "Đăng Xuất";
-            this.btn_destroy.UseVisualStyleBackColor = true;
-            this.btn_destroy.Click += new System.EventHandler(this.btn_destroy_Click);
             // 
             // groupBox5
             // 
@@ -373,23 +374,23 @@
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
+            // btn_destroy
+            // 
+            this.btn_destroy.Location = new System.Drawing.Point(1080, 29);
+            this.btn_destroy.Name = "btn_destroy";
+            this.btn_destroy.Size = new System.Drawing.Size(70, 53);
+            this.btn_destroy.TabIndex = 12;
+            this.btn_destroy.Text = "Đăng Xuất";
+            this.btn_destroy.UseVisualStyleBackColor = true;
+            this.btn_destroy.Click += new System.EventHandler(this.btn_destroy_Click);
+            // 
             // txt_picture
             // 
             this.txt_picture.Location = new System.Drawing.Point(575, 98);
             this.txt_picture.Name = "txt_picture";
             this.txt_picture.Size = new System.Drawing.Size(130, 20);
             this.txt_picture.TabIndex = 11;
-            // 
-            // btn_thong_ke
-            // 
-            this.btn_thong_ke.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_thong_ke.Location = new System.Drawing.Point(164, 13);
-            this.btn_thong_ke.Name = "btn_thong_ke";
-            this.btn_thong_ke.Size = new System.Drawing.Size(106, 32);
-            this.btn_thong_ke.TabIndex = 14;
-            this.btn_thong_ke.Text = "Thống Kê";
-            this.btn_thong_ke.UseVisualStyleBackColor = true;
-            this.btn_thong_ke.Click += new System.EventHandler(this.btn_thong_ke_Click);
+            this.txt_picture.Visible = false;
             // 
             // main
             // 
