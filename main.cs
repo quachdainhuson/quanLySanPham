@@ -306,7 +306,7 @@ namespace quanLySanPham
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Ban co chac chan muon xoa san pham nay khong??", "Xoa", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Bạn có chắc xóa sản phẩm này không??", "Xoa", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes) {
                 String prd_id = txt_product_id.Text;

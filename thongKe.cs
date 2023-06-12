@@ -69,7 +69,7 @@ namespace quanLySanPham
         private void gridView() {
             SqlConnection con = new SqlConnection(strCon);
             con.Open();
-            string sql = "SELECT categories.cate_id, categories.cate_name, COUNT(product.prd_id) AS tong_so_san_pham, SUM(product.prd_quantity) AS tong_san_pham\r\nFROM product\r\nJOIN categories ON product.cate_id = categories.cate_id\r\nGROUP BY categories.cate_id, categories.cate_name;";
+            string sql = "SELECT categories.cate_id, categories.cate_name, COUNT(product.prd_id) AS tong_so_san_pham, SUM(product.prd_quantity) AS tong_san_pham\r\nFROM product\r\nRIGHT JOIN categories ON product.cate_id = categories.cate_id\r\nGROUP BY categories.cate_id, categories.cate_name;";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, con);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet, "product");

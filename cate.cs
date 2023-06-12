@@ -177,6 +177,7 @@ namespace quanLySanPham
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Cap Nhat Thanh Cong !!!");
                         loadData();
+                        con.Close();
                     }
                 }
 
